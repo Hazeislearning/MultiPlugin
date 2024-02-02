@@ -10,16 +10,21 @@ import org.jetbrains.annotations.NotNull;
 
 public class TimerCommands implements CommandExecutor {
     @Override
-    public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+    public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String label, @NotNull String[] args) 
+    {
 
         if(args.length == 0) {
            sendUsage(commandSender);
         }
-        switch (args[0].toLowerCase()) {
-            case "resume": {
-                Timer timer = Main.getInstance().getTimer();
 
-                if (timer.isRunning()) {
+        Timer timer = Main.getInstance().getTimer();
+        switch(args[0].toLowerCase()) 
+        {
+            case "resume": 
+            {
+
+                if (timer.isRunning()) 
+                {
                     commandSender.sendMessage(ChatColor.RED + " Der Timer Läuft bereits.");
                     break;
                 }
@@ -28,9 +33,11 @@ public class TimerCommands implements CommandExecutor {
                 commandSender.sendMessage(ChatColor.GRAY + " Der Timer wurde Gestartet.");
                 break;
             }
-            case "time": {
-                Timer timer;
-                if (!timer.isRunning()) {
+
+            case "time": 
+            {
+                if (!timer.isRunning()) 
+                {
                     commandSender.sendMessage(ChatColor.GRAY + "Verwendung" + ChatColor.DARK_GRAY + ": " + ChatColor.BLUE +
                             "/timer time <Zeit>");
                     return  true;
@@ -41,31 +48,30 @@ public class TimerCommands implements CommandExecutor {
                 break;
             }
 
-
-            if(args.length != 2) {
-                sendUsage(commandSender);
-            }
-
-            case "time": {
-                Timer timer = Main.getInstance().getTimer();
-
-                timer.setTime(args[1]);
+            case "time2": 
+            {
+                int time = Integer.parseInt(args[1]);
+                timer.setTime(time);
                 commandSender.sendMessage(ChatColor.GRAY + " Der Timer wurde Gestartet.");
                 break;
             }
+            
+            case "reset": 
+            {
                 break;
-            case "reset":
-                break;
+            }
+
             default:
                 sendUsage(commandSender);
                 break;
 
-
         }
+
         return false;
     }
 
-    private void sendUsage(CommandSender sender) {
+    private void sendUsage(CommandSender sender) 
+    {
         sender.sendMessage("§7Verwendung§8: §9/t resume, /timer pause, /timer time <Zeit>, /timer reset");
     }
  }

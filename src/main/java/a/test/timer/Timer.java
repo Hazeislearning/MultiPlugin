@@ -39,6 +39,10 @@ public class Timer {
         this.time = time;
     }
 
+    public void resetTimer() {
+        setTime(0);
+    }
+
     public void sendActionBar() {
 
         for (Player player : Bukkit.getOnlinePlayers()) {
