@@ -39,7 +39,7 @@ public class Timer {
         this.time = time;
     }
 
-    public void resetTimer() {
+    public void resetTime() {
         setTime(0);
     }
 

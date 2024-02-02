@@ -48,7 +48,7 @@ public class TimerCommands implements CommandExecutor {
                 break;
             }
 
-            case "time2": 
+            case "settime": 
             {
                 int time = Integer.parseInt(args[1]);
                 timer.setTime(time);
@@ -58,6 +58,7 @@ public class TimerCommands implements CommandExecutor {
             
             case "reset": 
             {
+                timer.resetTime();
                 break;
             }
 
@@ -72,6 +73,6 @@ public class TimerCommands implements CommandExecutor {
 
     private void sendUsage(CommandSender sender) 
     {
-        sender.sendMessage("§7Verwendung§8: §9/t resume, /timer pause, /timer time <Zeit>, /timer reset");
+        sender.sendMessage("§7Verwendung§8: §9/t resume, /timer pause, /timer settime <Zeit>, /timer reset");
     }
  }
