@@ -43,6 +43,7 @@ public class Timer {
         setTime(0);
     }
 
+    @SuppressWarnings("deprecation")
     public void sendActionBar() {
 
         for (Player player : Bukkit.getOnlinePlayers()) {

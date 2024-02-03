@@ -18,11 +18,11 @@ public class TimerCommands implements CommandExecutor {
         }
 
         Timer timer = Main.getInstance().getTimer();
+        
         switch(args[0].toLowerCase()) 
         {
             case "resume": 
             {
-
                 if (timer.isRunning()) 
                 {
                     commandSender.sendMessage(ChatColor.RED + " Der Timer Läuft bereits.");
